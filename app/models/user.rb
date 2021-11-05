@@ -3,10 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
+         VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
          validates :name,               presence: true
          validates :email,              presence: true
-         validates :password,           {presence: true, format: { with: VALID_PASSWORD_REGEX },length:{minimum:7}}
+         validates :password,           {presence: true, format: { with: VALID_PASSWORD_REGEX },length:{minimum:6}}
          validates :birthday,           presence: true
          validates :first_name,         presence: true
          validates :family_name,        presence: true
