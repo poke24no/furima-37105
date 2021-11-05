@@ -20,8 +20,8 @@
 | --------------- | --------- | ----------------------------- |
 | item_name       | string    | null :false                   |
 | explanation     | text      | null :false                   |
-| category        | text      | null :false                   |
-| status          | string    | null :false                   |
+| category        | integer   | null :false                   |
+| status          | integer   | null :false                   |
 | price           | integer   | null :false                   |
 | shipment_source | integer   | null :false                   |
 | days            | integer   | null :false                   |
