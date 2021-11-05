@@ -48,14 +48,15 @@
 
 ## addresses テーブル
 
-| Colum           | Type      | Option                        |
-| --------------- | --------- | ----------------------------- |
-| add_number      | string    | null :false                   |
-| prefecture      | integer   | null :false                   |
-| city            | string    | null :false                   |
-| address         | string    | null :false                   |
-| building        | string    |                               |
-| telephone       | string    | null :false                   |
+| Colum           | Type       | Option                        |
+| --------------- | ---------- | ----------------------------- |
+| add_number      | string     | null :false                   |
+| prefecture      | integer    | null :false                   |
+| city            | string     | null :false                   |
+| address         | string     | null :false                   |
+| building        | string     |                               |
+| telephone       | string     | null :false                   |
+| buyer           | references | null :false foreign_key: true |
 
 ### Association
 
