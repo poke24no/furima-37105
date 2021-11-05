@@ -50,7 +50,7 @@
 
 | Colum           | Type      | Option                        |
 | --------------- | --------- | ----------------------------- |
-| add_number      | integer   | null :false                   |
+| add_number      | string    | null :false                   |
 | prefecture      | string    | null :false                   |
 | city            | string    | null :false                   |
 | address         | string    | null :false                   |
