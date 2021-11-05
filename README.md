@@ -27,8 +27,9 @@
 | category_id        | integer   | null :false                   |
 | status_id          | integer   | null :false                   |
 | price              | integer   | null :false                   |
-| shipment_source_id | integer   | null :false                   |
-| days               | integer   | null :false                   |
+| load_id            | integer   | null :false                   |
+| prefecture_id      | integer   | null :false                   |
+| day_id             | integer   | null :false                   |
 | user               | references| null :false foreign_key: true |
 
 ### Association
