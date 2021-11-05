@@ -7,7 +7,7 @@
 | name               | string  | null: false |
 | email              | string  | null: false |
 | encrypted_password | string  | null: false |
-| birthday           | integer | null: false |
+| birthday           | date    | null: false |
 
 ### Association
 
