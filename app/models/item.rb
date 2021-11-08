@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
-  has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
+  has_one_attached :image
   belongs_to :category
   belongs_to :day
   belongs_to :load
