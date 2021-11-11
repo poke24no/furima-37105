@@ -13,4 +13,5 @@ class User < ApplicationRecord
   validates :family_name_rub,    { presence: true, format: { with: /\A[ァ-ヶー－]+\z/ } }
 
   has_many :items
+  has_many :buyers
 end
