@@ -2,11 +2,11 @@ class BuyerAddress
   include ActiveModel::Model
   attr_accessor :add_number, :prefecture_id, :city, :address, :building, :telephone, :buyer_id, :item_id, :user_id, :token
   validates :token, presence: true
-  validates :add_number,         presence: true, format: { with: \A\d{3}[-]?\d{4}\z }
-  validates :prefecture_id,      presence: true,
-  validates :city,               presence: true,
-  validates :address,            presence: true,
-  validates :telephone,          presence: true, format: { with: ^0[0-9]{10,11}$ }
+  validates :add_number,         { presence: true, format: { with: /\A\d{3}[-]?\d{4}\z/ } }
+  validates :prefecture_id,      presence: true
+  validates :city,               presence: true
+  validates :address,            presence: true
+  validates :telephone,          { presence: true, format: { with: /\A\d{10}$|^\d{11}\z/ } }
 
 
   def save
