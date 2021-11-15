@@ -1,7 +1,7 @@
 class BuyerAddress
   include ActiveModel::Model
   attr_accessor :add_number, :prefecture_id, :city, :address, :building, :telephone, :buyer_id, :item_id, :user_id, :token
-  
+  validates :token, presence: true
 
   def save
     
