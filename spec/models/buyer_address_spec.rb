@@ -2,8 +2,9 @@ require 'rails_helper'
 #bundle exec rspec spec/models/buyer_address_spec.rb
 RSpec.describe BuyerAddress, type: :model do
   before do
+    user = FactoryBot.create(:user)
     item = FactoryBot.create(:item)
-    @buyer_address = FactoryBot.build(:buyer_address, item_id: item.id,)
+    @buyer_address = FactoryBot.build(:buyer_address, item_id: item.id, user_id: user.id)
     sleep(1)
   end
 
@@ -53,10 +54,30 @@ RSpec.describe BuyerAddress, type: :model do
         @buyer_address.valid?
         expect(@buyer_address.errors.full_messages).to include("Telephone can't be blank", "Telephone is invalid")
       end
-      it 'telephoneは10桁以上11桁以内で半角数字でないと保存できない' do
+      it 'telephoneは半角数字でないと保存できない' do
         @buyer_address.telephone = 123-1234-1234
         @buyer_address.valid?
         expect(@buyer_address.errors.full_messages).to include("Telephone is invalid")
+      end
+      it 'telephoneは9桁以下で保存できない' do
+          @buyer_address.telephone = 123123412
+          @buyer_address.valid?
+          expect(@buyer_address.errors.full_messages).to include("Telephone is invalid")
+      end
+      it 'telephoneは12桁以上で保存できない' do
+        @buyer_address.telephone = 123412341234
+        @buyer_address.valid?
+        expect(@buyer_address.errors.full_messages).to include("Telephone is invalid")
+      end
+      it 'itemが紐づいていないと保存できない' do
+        @buyer_address.item_id = nil
+        @buyer_address.valid?
+        expect(@buyer_address.errors.full_messages).to include("Item can't be blank")
+      end
+      it 'userが紐づいていないと保存できない' do
+        @buyer_address.user_id = nil
+        @buyer_address.valid?
+        expect(@buyer_address.errors.full_messages).to include("User can't be blank")
       end
     end
   end
