@@ -1,13 +1,14 @@
 class BuyerAddress
   include ActiveModel::Model
   attr_accessor :add_number, :prefecture_id, :city, :address, :building, :telephone, :buyer_id, :item_id, :user_id, :token
+  with_options presence: true do
   validates :token, presence: true
-  validates :add_number,         { presence: true, format: { with: /\A\d{3}[-]\d{4}\z/ } }
-  validates :prefecture_id,      numericality: { other_than: 1 }
-  validates :city,               presence: true
-  validates :address,            presence: true
-  validates :telephone,          { presence: true, format: { with: /\A\d{10}$|^\d{11}\z/ } }
-
+  validates :add_number,          format: { with: /\A\d{3}[-]\d{4}\z/ } 
+  validates :prefecture_id,       numericality: { other_than: 1 }
+  validates :city,               
+  validates :address,           
+  validates :telephone,           format: { with: /\A\d{10}$|^\d{11}\z/ } 
+  end
 
   def save
     
