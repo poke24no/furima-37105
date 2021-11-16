@@ -4,6 +4,7 @@ RSpec.describe BuyerAddress, type: :model do
   before do
     item = FactoryBot.create(:item)
     @buyer_address = FactoryBot.build(:buyer_address, item_id: item.id,)
+    sleep(1)
   end
 
   describe do
