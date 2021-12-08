@@ -17,7 +17,7 @@ if(location.pathname.match(/\/items\/\d/)){
     received(data) {
       const html = `
         <div class="comment">
-          <p class="user-info">${data.user.nickname}： </p>
+          <p class="user-info">${data.user.name}： </p>
           <p>${data.comment.text}</p>
         </div>`
       const comments = document.getElementById("comments")
